@@ -1,12 +1,12 @@
 function Header() {
   return (
-    <div className="min-h-screen overflow-hidden bg-slate-50 text-slate-900">
+    <header className="relative overflow-hidden bg-slate-50 text-slate-900">
 
       {/* ================= TOP BAR ================= */}
-      <div className="hidden border-b bg-white lg:block">
+      <div className="hidden border-b border-gray-200 bg-white lg:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 text-sm">
-
-          <div className="flex items-center gap-6 text-gray-600">
+          
+          <div className="flex items-center gap-4 text-gray-600">
             <span className="font-medium">
               🎓 India’s Smartest AI College Discovery Platform
             </span>
@@ -23,14 +23,14 @@ function Header() {
           <div className="flex items-center gap-6">
             <a
               href="#"
-              className="font-medium text-gray-600 transition hover:text-orange-500"
+              className="font-medium transition hover:text-orange-500"
             >
               Write a Review
             </a>
 
             <a
               href="#"
-              className="font-medium text-gray-600 transition hover:text-orange-500"
+              className="font-medium transition hover:text-orange-500"
             >
               Download App
             </a>
@@ -39,11 +39,11 @@ function Header() {
       </div>
 
       {/* ================= NAVBAR ================= */}
-      <nav className="sticky top-0 z-50 border-b border-white/20 bg-white/80 backdrop-blur-xl">
+      <nav className="sticky top-0 z-50 border-b border-white/10 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
           {/* LOGO */}
-          <div>
+          <div className="shrink-0">
             <h1 className="bg-gradient-to-r from-orange-500 via-purple-700 to-cyan-500 bg-clip-text text-3xl font-black tracking-tight text-transparent">
               SuggestMyCollege
             </h1>
@@ -55,58 +55,31 @@ function Header() {
 
           {/* NAV LINKS */}
           <div className="hidden items-center gap-8 lg:flex">
-
-            <a
-              href="#"
-              className="text-sm font-semibold text-gray-700 transition hover:text-orange-500"
-            >
-              Colleges
-            </a>
-
-            <a
-              href="#"
-              className="text-sm font-semibold text-gray-700 transition hover:text-orange-500"
-            >
-              Exams
-            </a>
-
-            <a
-              href="#"
-              className="text-sm font-semibold text-gray-700 transition hover:text-orange-500"
-            >
-              Courses
-            </a>
-
-            <a
-              href="#"
-              className="text-sm font-semibold text-gray-700 transition hover:text-orange-500"
-            >
-              Compare
-            </a>
-
-            <a
-              href="#"
-              className="text-sm font-semibold text-gray-700 transition hover:text-orange-500"
-            >
-              Predictors
-            </a>
-
-            <a
-              href="#"
-              className="text-sm font-semibold text-gray-700 transition hover:text-orange-500"
-            >
-              Scholarships
-            </a>
+            {[
+              "Colleges",
+              "Exams",
+              "Courses",
+              "Compare",
+              "Predictors",
+              "Scholarships",
+            ].map((item) => (
+              <a
+                key={item}
+                href="#"
+                className="text-sm font-semibold text-gray-700 transition hover:text-orange-500"
+              >
+                {item}
+              </a>
+            ))}
           </div>
 
           {/* BUTTONS */}
           <div className="flex items-center gap-4">
-
             <button className="hidden rounded-xl border border-orange-200 px-5 py-2 text-sm font-bold text-orange-600 transition hover:bg-orange-50 md:block">
               Login
             </button>
 
-            <button className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-300 transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <button className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-300/30 transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
               Get Started
             </button>
           </div>
@@ -114,20 +87,20 @@ function Header() {
       </nav>
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative">
+      <section className="relative isolate overflow-hidden">
 
         {/* BACKGROUND */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#5B21B6] via-[#6D28D9] to-[#0F172A]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#5B21B6] via-[#6D28D9] to-[#0F172A]" />
 
         {/* GLOW EFFECTS */}
-        <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-orange-400/30 blur-3xl"></div>
+        <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-orange-400/30 blur-3xl" />
 
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
 
-        {/* CONTENT */}
-        <div className="relative mx-auto grid max-w-7xl items-center gap-20 px-6 py-24 lg:grid-cols-2">
+        {/* GRID */}
+        <div className="relative mx-auto grid max-w-7xl gap-20 px-6 py-24 lg:grid-cols-2 lg:items-center">
 
-          {/* LEFT SIDE */}
+          {/* LEFT CONTENT */}
           <div className="text-white">
 
             {/* BADGE */}
@@ -147,19 +120,18 @@ function Header() {
             {/* DESCRIPTION */}
             <p className="mb-10 max-w-2xl text-lg leading-8 text-purple-100">
               Discover colleges, compare rankings, predict admissions,
-              explore placements, scholarships, fees, and get
-              AI-powered career guidance personalized for you.
+              placements, scholarships, fees, and get AI-powered
+              career guidance personalized for you.
             </p>
 
             {/* SEARCH BOX */}
             <div className="mb-8 rounded-3xl border border-white/20 bg-white/10 p-4 backdrop-blur-2xl">
-
+              
               <div className="flex flex-col gap-4 lg:flex-row">
-
                 <input
                   type="text"
                   placeholder="Search Colleges, Exams, Courses..."
-                  className="flex-1 rounded-2xl border-none bg-white px-6 py-5 text-gray-700 outline-none"
+                  className="flex-1 rounded-2xl bg-white px-6 py-5 text-gray-700 outline-none ring-0"
                 />
 
                 <button className="rounded-2xl bg-gradient-to-r from-orange-500 via-orange-600 to-purple-600 px-10 py-5 font-bold text-white shadow-xl shadow-orange-400/30 transition duration-300 hover:scale-105">
@@ -170,51 +142,30 @@ function Header() {
 
             {/* TAGS */}
             <div className="flex flex-wrap gap-4">
-
-              <button className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur-lg transition hover:bg-orange-400/20">
-                Engineering
-              </button>
-
-              <button className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur-lg transition hover:bg-orange-400/20">
-                MBA
-              </button>
-
-              <button className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur-lg transition hover:bg-orange-400/20">
-                Medical
-              </button>
-
-              <button className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur-lg transition hover:bg-orange-400/20">
-                Law
-              </button>
-
-              <button className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur-lg transition hover:bg-orange-400/20">
-                Design
-              </button>
+              {["Engineering", "MBA", "Medical", "Law", "Design"].map(
+                (tag) => (
+                  <button
+                    key={tag}
+                    className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur-lg transition hover:bg-orange-400/20"
+                  >
+                    {tag}
+                  </button>
+                )
+              )}
             </div>
 
             {/* STATS */}
             <div className="mt-14 flex flex-wrap gap-10">
-
-              <div>
-                <h3 className="text-3xl font-black">10K+</h3>
-                <p className="text-purple-100">
-                  Colleges
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-black">2M+</h3>
-                <p className="text-purple-100">
-                  Students Guided
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-black">98%</h3>
-                <p className="text-purple-100">
-                  Prediction Accuracy
-                </p>
-              </div>
+              {[
+                ["10K+", "Colleges"],
+                ["2M+", "Students Guided"],
+                ["98%", "Prediction Accuracy"],
+              ].map(([value, label]) => (
+                <div key={label}>
+                  <h3 className="text-3xl font-black">{value}</h3>
+                  <p className="text-purple-100">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -226,7 +177,6 @@ function Header() {
 
               {/* TOP */}
               <div className="mb-5 flex items-center justify-between">
-
                 <div>
                   <h2 className="text-2xl font-black text-slate-900">
                     Best Match
@@ -251,7 +201,6 @@ function Header() {
 
               {/* INFO */}
               <div className="mb-5 flex items-start justify-between">
-
                 <div>
                   <h3 className="text-3xl font-black">
                     IIT Delhi
@@ -269,7 +218,6 @@ function Header() {
 
               {/* PROGRESS */}
               <div className="mb-6">
-
                 <div className="mb-2 flex items-center justify-between text-sm font-semibold">
                   <span>Admission Probability</span>
 
@@ -279,47 +227,34 @@ function Header() {
                 </div>
 
                 <div className="h-3 overflow-hidden rounded-full bg-gray-200">
-                  <div className="h-full w-[96%] rounded-full bg-gradient-to-r from-orange-500 via-purple-600 to-cyan-500"></div>
+                  <div className="h-full w-[96%] rounded-full bg-gradient-to-r from-orange-500 via-purple-600 to-cyan-500" />
                 </div>
               </div>
 
               {/* STATS */}
               <div className="grid grid-cols-3 gap-4">
+                {[
+                  ["₹25L", "Avg Package", "text-orange-500"],
+                  ["99%", "Placement", "text-purple-700"],
+                  ["AAA+", "Rating", "text-cyan-600"],
+                ].map(([value, label, color]) => (
+                  <div
+                    key={label}
+                    className="rounded-2xl bg-slate-50 p-4 text-center"
+                  >
+                    <h4 className={`text-xl font-black ${color}`}>
+                      {value}
+                    </h4>
 
-                <div className="rounded-2xl bg-slate-50 p-4 text-center">
-                  <h4 className="text-xl font-black text-orange-500">
-                    ₹25L
-                  </h4>
-
-                  <p className="mt-1 text-xs text-gray-500">
-                    Avg Package
-                  </p>
-                </div>
-
-                <div className="rounded-2xl bg-slate-50 p-4 text-center">
-                  <h4 className="text-xl font-black text-purple-700">
-                    99%
-                  </h4>
-
-                  <p className="mt-1 text-xs text-gray-500">
-                    Placement
-                  </p>
-                </div>
-
-                <div className="rounded-2xl bg-slate-50 p-4 text-center">
-                  <h4 className="text-xl font-black text-cyan-600">
-                    AAA+
-                  </h4>
-
-                  <p className="mt-1 text-xs text-gray-500">
-                    Rating
-                  </p>
-                </div>
+                    <p className="mt-1 text-xs text-gray-500">
+                      {label}
+                    </p>
+                  </div>
+                ))}
               </div>
 
               {/* BUTTONS */}
               <div className="mt-7 flex gap-4">
-
                 <button className="flex-1 rounded-2xl bg-gradient-to-r from-orange-500 to-purple-600 py-4 font-bold text-white shadow-lg shadow-orange-300 transition duration-300 hover:scale-[1.02]">
                   View Details
                 </button>
@@ -332,7 +267,6 @@ function Header() {
 
             {/* FLOATING CARD */}
             <div className="absolute -left-8 top-10 hidden rounded-2xl border border-white/20 bg-white/90 px-5 py-4 shadow-xl backdrop-blur-xl lg:block">
-
               <p className="text-sm font-bold text-gray-500">
                 AI Prediction
               </p>
@@ -344,8 +278,8 @@ function Header() {
           </div>
         </div>
       </section>
-    </div>
-  )
+    </header>
+  );
 }
 
 export default Header;
